@@ -4,7 +4,7 @@ using SharpMongoDB.Core.Enums;
 namespace SharpMongoDB.Core.Attributes
 {
     [AttributeUsage(AttributeTargets.Property)]
-    public class FetchTypeAttribute
+    public class FetchTypeAttribute: Attribute
     {
         public FetchTypeAttribute(FetchTypeEnum fetchType)
         {
