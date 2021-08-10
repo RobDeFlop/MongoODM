@@ -1,6 +1,6 @@
 ﻿using MongoDB.Driver;
 
-namespace MongoODM.Core
+namespace SharpMongoDB.Core
 {
     public class MongoConnection
     {

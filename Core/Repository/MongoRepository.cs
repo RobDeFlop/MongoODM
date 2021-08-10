@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq.Expressions;
 using MongoDB.Bson;
 using MongoDB.Driver;
-using MongoODM.Core.Interfaces;
+using SharpMongoDB.Core.Interfaces;
 
-namespace MongoODM.Core.Repository
+namespace SharpMongoDB.Core.Repository
 {
     public abstract class MongoRepository<T> where T : IMongoEntity
     {
@@ -38,12 +38,12 @@ namespace MongoODM.Core.Repository
             return MongoCollection.Find(findObj => findObj.Id == obj.Id).FirstOrDefault();
         }
 
-        public T FindOneByFilter(Expression<Func<T, bool>>filter)
+        public T FindOneByFilter(Expression<Func<T, bool>> filter)
         {
             return MongoCollection.Find(filter).FirstOrDefault();
         }
 
-        public List<T> FindAllByFilter(Expression<Func<T, bool>>filter)
+        public List<T> FindAllByFilter(Expression<Func<T, bool>> filter)
         {
             return MongoCollection.Find(filter).ToList();
         }

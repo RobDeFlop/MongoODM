@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MongoODM.Core.Attributes
+namespace SharpMongoDB.Core.Attributes
 {
     [AttributeUsage(AttributeTargets.Class)]
     public class EmbeddableAttribute: Attribute

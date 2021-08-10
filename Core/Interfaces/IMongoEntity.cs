@@ -1,6 +1,6 @@
 ﻿using MongoDB.Bson;
 
-namespace MongoODM.Core.Interfaces
+namespace SharpMongoDB.Core.Interfaces
 {
     public interface IMongoEntity
     {
