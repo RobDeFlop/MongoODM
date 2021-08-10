@@ -1,14 +1,14 @@
-﻿using System;
-using MongoDB.Driver;
+﻿using MongoDB.Driver;
 
 namespace MongoODM.Core
 {
     public class MongoConnection
     {
-        public MongoClient MongoClient = null;
+        public MongoClient MongoClient;
+        public IMongoDatabase MongoDatabase;
 
         /// <summary>
-        /// Creates an instance of MongoConnection and establishes the connection
+        ///     Creates an instance of MongoConnection and establishes the connection
         /// </summary>
         /// <param name="host"></param>
         /// <param name="username"></param>
@@ -17,11 +17,10 @@ namespace MongoODM.Core
         /// <param name="port">Standard port is set to 27017</param>
         public MongoConnection(string host, string username, string password, string schema, int port = 27017)
         {
-            
         }
 
         /// <summary>
-        /// Creates an instance of MongoConnection and establishes the connection
+        ///     Creates an instance of MongoConnection and establishes the connection
         /// </summary>
         /// <param name="connectionString">Add a connection string</param>
         /// <param name="schema"></param>
@@ -30,19 +29,19 @@ namespace MongoODM.Core
             InitWithConnectionString(connectionString);
             SelectDatabase(schema);
         }
-        
+
         /// <summary>
-        /// Connects to a database with a connection string
+        ///     Connects to a database with a connection string
         /// </summary>
         /// <param name="connectionString"></param>
         private void InitWithConnectionString(string connectionString)
         {
-           MongoClient = new MongoClient(connectionString);
+            MongoClient = new MongoClient(connectionString);
         }
 
         private void SelectDatabase(string databaseName)
         {
-            MongoClient.GetDatabase(databaseName);
+            MongoDatabase = MongoClient.GetDatabase(databaseName);
         }
     }
 }

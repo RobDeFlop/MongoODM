@@ -1,1 +1,4 @@
 ﻿/MongoODM.csproj
+.idea
+obj/*
+bin/*
