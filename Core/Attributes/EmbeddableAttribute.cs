@@ -2,7 +2,7 @@
 
 namespace SharpMongoDB.Core.Attributes
 {
-    [AttributeUsage(AttributeTargets.Class)]
+    [AttributeUsage(AttributeTargets.Property)]
     public class EmbeddableAttribute: Attribute
     {
         

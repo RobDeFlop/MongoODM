@@ -6,7 +6,7 @@ namespace SharpMongoDB.Core.Attributes
     [AttributeUsage(AttributeTargets.Property)]
     public class FetchTypeAttribute: Attribute
     {
-        public FetchTypeAttribute(FetchTypeEnum fetchType)
+        public FetchTypeAttribute(FetchType fetchType)
         {
             
         }

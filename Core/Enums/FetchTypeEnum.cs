@@ -1,6 +1,6 @@
 ﻿namespace SharpMongoDB.Core.Enums
 {
-    public enum FetchTypeEnum
+    public enum FetchType
     {
         Eager,
         Lazy
