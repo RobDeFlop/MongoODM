@@ -15,7 +15,7 @@ namespace SharpMongoDB.Core.Repository
         protected MongoRepository(IMongoDatabase mongoDb)
         {
             MongoDatabase = mongoDb;
-            MongoCollection = MongoDatabase.GetCollection<T>(GenerateNamingConvention(typeof(T).Name));
+            MongoCollection = MongoDatabase.GetCollection<T>(NamingHelper.GeneratePluralNaming(typeof(T).Name));
         }
 
         public void Insert(T obj)
@@ -43,19 +43,15 @@ namespace SharpMongoDB.Core.Repository
             return MongoCollection.Find(filter).FirstOrDefault();
         }
 
-        public List<T> FindAllByFilter(Expression<Func<T, bool>> filter)
+        public IEnumerable<T> FindAllByFilter(Expression<Func<T, bool>> filter)
         {
-            return MongoCollection.Find(filter).ToList();
+            return MongoCollection.Find(filter).ToEnumerable();
         }
 
-        public List<T> FindAll()
+        public IEnumerable<T> FindAll()
         {
-            return MongoCollection.Find(new BsonDocument()).ToList();
+            return MongoCollection.Find(new BsonDocument()).ToEnumerable();
         }
-
-        private string GenerateNamingConvention(string singularForm)
-        {
-            return singularForm.ToLower() + "s";
-        }
+        
     }
 }
