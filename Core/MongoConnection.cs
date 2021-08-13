@@ -18,6 +18,7 @@ namespace SharpMongoDB.Core
         /// <param name="port">Standard port is set to 27017</param>
         public MongoConnection(string host, string username, string password, string schema, int port = 27017)
         {
+            
         }
 
         /// <summary>
@@ -30,6 +31,9 @@ namespace SharpMongoDB.Core
             InitWithConnectionString(connectionString);
             SelectDatabase(schema);
             setIgnoreExtraElements(true);
+            
+            new Container.Container();
+            
         }
 
         /// <summary>

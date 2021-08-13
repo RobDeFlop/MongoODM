@@ -1,9 +1,11 @@
 ﻿#nullable enable
 using MongoDB.Bson.Serialization;
 using Newtonsoft.Json;
+using SharpMongoDB.Core.Container.Attributes;
 
 namespace SharpMongoDB.Core.Mapping
 {
+    [Singleton]
     public class ConvertProvider<T>
     {
         public string ConvertFromObjectToJson(T obj)
@@ -15,5 +17,6 @@ namespace SharpMongoDB.Core.Mapping
         {
             return BsonSerializer.Deserialize<T>(jsonObject);
         }
+        
     }
 }
