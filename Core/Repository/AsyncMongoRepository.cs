@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq.Expressions;
-using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using MongoDB.Bson;
 using MongoDB.Driver;
@@ -22,7 +20,7 @@ namespace SharpMongoDB.Core.Repository
 
         public Task Insert(T obj)
         {
-           return MongoCollection.InsertOneAsync(obj);
+            return MongoCollection.InsertOneAsync(obj);
         }
 
         public Task<T> Update(T obj)
@@ -54,7 +52,5 @@ namespace SharpMongoDB.Core.Repository
         {
             return MongoCollection.FindAsync(new BsonDocument());
         }
-        
-       
     }
 }

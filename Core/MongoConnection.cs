@@ -1,4 +1,5 @@
-﻿using MongoDB.Driver;
+﻿using MongoDB.Bson.Serialization.Conventions;
+using MongoDB.Driver;
 
 namespace SharpMongoDB.Core
 {
@@ -28,6 +29,7 @@ namespace SharpMongoDB.Core
         {
             InitWithConnectionString(connectionString);
             SelectDatabase(schema);
+            setIgnoreExtraElements(true);
         }
 
         /// <summary>
@@ -42,6 +44,12 @@ namespace SharpMongoDB.Core
         private void SelectDatabase(string databaseName)
         {
             MongoDatabase = MongoClient.GetDatabase(databaseName);
+        }
+
+        private void setIgnoreExtraElements(bool ignore)
+        {
+            var ignorePack = new ConventionPack {new IgnoreExtraElementsConvention(ignore)};
+            ConventionRegistry.Register("SharpMongoDB Conventions", ignorePack, t => true);
         }
     }
 }

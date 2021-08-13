@@ -3,14 +3,13 @@
 namespace SharpMongoDB.Core.Attributes
 {
     [AttributeUsage(AttributeTargets.Property)]
-    public class EntityAttribute: Attribute
+    public class EntityAttribute : Attribute
     {
-        public Type ClassType { get; set; }
         public EntityAttribute(Type classType)
         {
             ClassType = classType;
         }
-        
-        
+
+        public Type ClassType { get; set; }
     }
 }

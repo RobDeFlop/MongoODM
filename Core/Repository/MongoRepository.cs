@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using System.Linq.Expressions;
 using MongoDB.Bson;
 using MongoDB.Driver;
-using SharpMongoDB.Core.Interfaces;
 
 namespace SharpMongoDB.Core.Repository
 {
-    public abstract class MongoRepository<T> where T : IMongoEntity
+    public abstract class MongoRepository<T> where T : MongoEntity
     {
         protected IMongoCollection<T> MongoCollection;
         protected IMongoDatabase MongoDatabase;
@@ -52,6 +51,5 @@ namespace SharpMongoDB.Core.Repository
         {
             return MongoCollection.Find(new BsonDocument()).ToEnumerable();
         }
-        
     }
 }
